@@ -46,7 +46,9 @@ uM = np_load(io.BytesIO(zlib.decompress(r.content)))
 queries = [ 'energy data in US' , 'policy Canada' , 'Australian financial and insurance data' ,\
             'climate impact in Africa' , 'regenerative agriculture India' , 'green jobs' , 'Vancouver soil data' ]
 
+
 def searchURLs(request, query, topN):
+    nlp = spacy.load("en_trf_bertbaseuncased_lg")
     queries = [query]
     qN = len(queries)
     qdocs = list(nlp.pipe(queries))

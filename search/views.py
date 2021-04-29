@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.template import loader, RequestContext
-from django_search import searchURLs
+#from django_search import searchURLs
+from Searcher import Searcher
 
 def index(request):
     #context = {'result_list' : ['result 1', 'result 2', 'result 3'] , 'query' : 'climate related websites'}
@@ -17,7 +18,8 @@ def search(request):
     query = request.POST.get('query')
 
     if (query):
-        resultDict = searchURLs(request, query, 50)
+        searcher = Searcher()
+        resultDict = searcher.searchURLs(request, query, 50)
     else:
         resultDict = {' ':[]}
         query = ' '
