@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.template import loader, RequestContext
 #from django_search import searchURLs
 from Searcher import Searcher
+import subprocess
+
 
 def index(request):
     #context = {'result_list' : ['result 1', 'result 2', 'result 3'] , 'query' : 'climate related websites'}
@@ -30,3 +32,9 @@ def search(request):
     return HttpResponse(template.template.render(requestContext))
     #return render(request, 'search/results.html', context)
 
+def spacy_init(request):
+    out_html = "<html><body><h1>spaCy download en_trf_bertbaseuncased_lg output:</h1><p>"
+    output = subprocess.check_output("python -m spacy download en_trf_bertbaseuncased_lg", stderr=subprocess.STDOUT, shell=True)
+    out_html += output.decode("UTF-8")
+    out_html += "</p></body></html>"
+    return HttpResponse(out_html)  
