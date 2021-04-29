@@ -7,7 +7,7 @@
     </style>
 </head>
 
-<link rel="stylesheet" type="text/css" href="{% static 'climate_data_hub/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'search/css/style.css' %}">
 <body>
 <div style="margin: auto; font-family:open-sans,sans-serif;font-size:16px;overflow-x:auto;padding-right:10px; padding-left:10px;width:90%;">
     <h3>About</h3>
@@ -27,13 +27,13 @@
         <dd>e.g. <i>"energy data in US" , "https://en.wikipedia.org/wiki/Climate_of_Dhaka" , "green jobs" ,"regenerative
             agriculture in India" , "satellite data Amazon rainforest"</i></dd>
 	<dt>
-            <form action="search" method="post" id="searchform"> {% csrf_token %}
+            <form action="search-results" method="post" id="searchform"> {% csrf_token %}
 		<br/>
                 <div>
                     <div class="search">
                         <input name="query" type="text" class="searchTerm" placeholder="eg. climate impact in Africa">
                         <button type="submit" form="searchform" value="submit"  class="searchButton">
-                            <img src="/static/climate_data_hub/images/search.png" alt="Icon Free Image - Search Button Png White Clipart@pikpng.com" width="24" height="24"/>
+                            <img src="/static/search/images/search.png" alt="Icon Free Image - Search Button Png White Clipart@pikpng.com" width="24" height="24"/>
                         </button>
                     </div>
                 </div>

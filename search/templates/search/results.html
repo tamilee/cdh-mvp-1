@@ -1,12 +1,12 @@
 {% load static %}
 <head>
-<link rel="stylesheet" type="text/css" href="{% static 'climate_data_hub/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'search/css/style.css' %}">
 <!--
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 -->
         <!-- MiniPreview stuff here -->
-        <link rel="stylesheet" type="text/css" href="{% static 'climate_data_hub/jquery.minipreview.css' %}">
-	<script src="{% static 'climate_data_hub/js//jquery.minipreview.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'search/css/jquery.minipreview.css' %}">
+	<script src="{% static 'search/js/jquery.minipreview.js' %}"></script>
         <script>
             $(function() {
                 $('#p1 a').miniPreview({ prefetch: 'pageload' });
@@ -28,7 +28,7 @@
    <div class="search">
       <input name="query" type="text" class="searchTerm" placeholder="eg. climate impact in Africa">
       <button type="submit" form="searchform" value="submit"  class="searchButton">
-	 <img src="/static/climate_data_hub/images/search.png" alt="Icon Free Image - Search Button Png White Clipart@pikpng.com" width="24" height="24"/>
+	 <img src="/static/search/images/search.png" alt="Icon Free Image - Search Button Png White Clipart@pikpng.com" width="24" height="24"/>
 	 <!--
         <i class="fa fa-search"></i>
 	 -->

@@ -19,12 +19,14 @@ nlp = spacy.load("en_trf_bertbaseuncased_lg")
 vector_size = 768
 
 import requests, io
-#csvLink = 'file:///home/tami/climate-master/url_stats.csv' 
-csvLink = 'https://storage.googleapis.com/climatedatahub1/url_stats.csv' 
+import os
+  
+#csvLink = ext_libs_path + '/url_stats.csv' 
+csvLink = 'https://mlws5706376320.z20.web.core.windows.net/url_stats.csv' 
 r = requests.get(csvLink, allow_redirects=True)
 csvfields = ['url' , 'name' , 'snippet' , 'text-length' , 'content-length' , 'hits' , 'markets' ,\
              'queries' , 'tags' , 'top-domain' , 'frags'  ]
-#with open(directoryRoot+'url_stats.csv', newline='', encoding='utf-8') as cf:
+#with open(csvLink, newline='', encoding='utf-8') as cf:
 with io.StringIO(r.content.decode()) as cf:
     reader = csv.DictReader(cf)
     csvL = [ row for row in reader ]
@@ -34,6 +36,8 @@ urls = [ w['url'] for w in csvL ]
 import zlib
 #uM = np_load(directoryRoot+'url_UNSnorm_mat.npy')
 matrixLink = 'https://storage.googleapis.com/climatedatahub1/url_UNSnorm_mat_zbytes' 
+matrixLink = 'https://drive.google.com/file/d/1ZoMp6v8v3_dWd47EirN_ZYch6usRA9jg/view?usp=sharing'
+matrixLink = 'https://mlws5706376320.z20.web.core.windows.net/url_UNSnorm_mat_zbytes'
 r = requests.get(matrixLink, allow_redirects=True)
 r.raise_for_status()
 uM = np_load(io.BytesIO(zlib.decompress(r.content)))
